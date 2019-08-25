@@ -61,11 +61,12 @@ jobs:
       - run: npm run build
       # deploy to firebase
       - run: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
-  workflows:
-    version: 2
-    deploy_master:
-      jobs:
-        - deploy_master:
-            filters:
-              branches:
-                only: master
+        
+workflows:
+  version: 2
+  deploy_master:
+    jobs:
+      - deploy_master:
+          filters:
+            branches:
+              only: master
