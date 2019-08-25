@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:7.10
+      - image: circleci/node:10.16.0
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -37,7 +37,7 @@ jobs:
       - run: npm test
   deploy_master:
     docker:
-      - image: circleci/node:7.10
+      - image: circleci/node:10.16.0
     steps:
       - checkout
 
@@ -61,7 +61,7 @@ jobs:
       - run: npm run build
       # deploy to firebase
       - run: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
-        
+
 workflows:
   version: 2
   deploy_master:
